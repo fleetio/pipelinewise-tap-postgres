@@ -150,7 +150,7 @@ def create_array_elem(elem, sql_datatype, conn_info):
     if elem is None:
         return None
     
-    if sql_datatype in ('text[]', 'integer[]'):
+    if sql_datatype in ('text[]', 'integer[]', 'character varying[]'):
         return  re.findall(r"([a-zA-Z0-9]+)", elem)
 
     with post_db.open_connection(conn_info, False, True) as conn:
